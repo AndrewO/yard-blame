@@ -1,0 +1,25 @@
+<table class="source_code">
+  <caption><span class="info file"># File '<%= h object.file %>'<% if object.line %>, line <%= object.line %><% end %></span></caption>
+  <tr>
+    <td>
+      <table>
+      <% blames = git_blame(object.file)%>
+      <% html_syntax_highlight(object.source).split("\n").each_with_index do |source_line, num| %>
+        <% blame = blames[object.line + num] %>
+        <tr>
+        <% if blame.author %>
+          <td class="author"><a href="mailto:<%= blame.mail %>"><%= h blame.author %></a></td>
+        <% else %>
+          <td class="author">No committed</td>
+        <% end%>
+          <td class="date"><%= h blame.time.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          <td class="commit"><%= h blame.sha.slice(0,8) %><p class="summary"><%= h blame.summary %></td>
+          <td class="lines"><%= object.line + num %></td>
+          <td class="code"><%= source_line %></td>
+        </tr>
+      <% end %>
+      </table>
+    </td>
+    <td>
+  </tr>
+</table>
