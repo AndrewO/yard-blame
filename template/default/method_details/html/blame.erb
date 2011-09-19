@@ -1,4 +1,4 @@
-<table class="source_code">
+<table class="source_code blame">
   <caption><span class="info file"># File '<%= h object.file %>'<% if object.line %>, line <%= object.line %><% end %></span></caption>
   <tr>
     <td>
@@ -13,9 +13,9 @@
           <td class="author">No committed</td>
         <% end%>
           <td class="date"><%= h blame.time.strftime("%Y-%m-%d %H:%M:%S") %></td>
-          <td class="commit"><%= h blame.sha.slice(0,8) %><p class="summary"><%= h blame.summary %></td>
+          <td class="commit"><a title="<%= h blame.summary %>"><%= h blame.sha.slice(0,8) %></a><td>
           <td class="lines"><%= object.line + num %></td>
-          <td class="code"><%= source_line %></td>
+          <td><pre class="code"><%= source_line %></pre></td>
         </tr>
       <% end %>
       </table>

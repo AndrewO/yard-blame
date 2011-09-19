@@ -1,6 +1,7 @@
 def init
   super
-  sections.last.place(:blame).before(:source)
+  sections.last.delete(:source)
+  sections.last.push(:blame)
 end
 
 def git_blame(file)
@@ -12,11 +13,9 @@ def git_blame(file)
   blames = []
   output.split("\n").each do |line|
     if md = line.match(/^([0-9a-f]{39,40})\s\d+\s(\d+).*/)
-      puts "line: #{line}"
       line_no = md[2].to_i
-      puts "line_no: #{line_no}"
       sha = md[1].match(/^0+$/) ? "-" : md[1]
-      puts "sha: #{sha}"
+
       commits[sha] ||= Commit.new(sha)
       blames[line_no - 1] = commits[sha]
     elsif line =~ /^author (.*)/
