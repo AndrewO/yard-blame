@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version     = Yard::Blame::VERSION
   s.authors     = ["Andrew O'Brien"]
   s.email       = ["obrien.andrew@gmail.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "http://github.com/AndrewO/yard-blame"
+  s.summary     = %q{Adds git-blame output to YARD docs}
+  s.description = %q{Who wrote that code? When? Why? Theses are all things we often ask when reading documentation. yard-blame makes it easy to ask.}
 
   s.rubyforge_project = "yard-blame"
 

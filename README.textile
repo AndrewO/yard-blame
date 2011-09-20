@@ -1,0 +1,17 @@
+h1. yard-blame
+
+A YARD plugin to add git-blame output to documentation.
+
+h2. Usage
+
+<pre><code>
+gem install yard-blame
+yardoc --plugin blame
+</code></pre>
+
+h2. TODO
+
+* The main thing is to make it more efficient by not running git-blame for every method.
+* Code cleanup: not sure I like the git_blame code being in the template, but perhaps that'll be fixed by the above.
+* Some kind of visual indicator of how recent a change might be good.
+* Integration with a commit viewer would be neat, but is starting to get out of scope of this plugin.
